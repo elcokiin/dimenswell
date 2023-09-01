@@ -1,6 +1,9 @@
+import { Header } from "../components/Header";
 
 const R2 = () => {
-    return <div> R2 </div>;
+    return <div>
+        <Header />
+    </div>;
     };
 
 export default R2;

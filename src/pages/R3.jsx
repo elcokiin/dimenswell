@@ -1,8 +1,17 @@
 
+import { Header } from "../components/Header";
+
+import '../styles/r3.css'
+
 const R3 = () => {
     return (
         <div>
-            <h1>R3</h1>
+            <Header />
+            <div class="tank">
+                <div class="bottom"></div>
+                <div class="middle"></div>
+                <div class="top"></div>
+            </div>
         </div>
     );
 }
