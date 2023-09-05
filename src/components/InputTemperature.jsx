@@ -1,11 +1,18 @@
-import { useContext } from "react"
-import { WidthContext } from "../Contexts"
+import { useContext, useEffect, useRef } from "react"
+import { WidthContext, TemperatureContext, MaterialContext } from "../Contexts"
 
-export const InputTemperature = ({setWidth}) => {
+import { obtainChangeLength, obtainMaterial } from '../utils/utils'
+
+export const InputTemperature = ({ setWidth, setTemperature }) => {
     const widthCot = useContext(WidthContext)
+    const temperatureCot = useContext(TemperatureContext)
+    const materialCot = useContext(MaterialContext)
 
     const handleChange = (e) => {
-        setWidth(widthCot)
+        const temperatureVariation = e.target.value - temperatureCot
+        const newWidth = widthCot + obtainChangeLength(widthCot, obtainMaterial(materialCot).expansionCoefficient, temperatureVariation)
+        setWidth(newWidth)
+        setTemperature(e.target.value)
     }
 
     return (

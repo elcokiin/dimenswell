@@ -7,15 +7,15 @@ const R3 = () => {
     return (
         <div>
             <Header />
-            <div class="space3D">
-                <div class="cube3D">
-                    <div class="base"></div>
-                    <aside class="face face1"></aside>
-                    <aside class="face face2"></aside>
-                    <aside class="face face3"></aside>
-                    <aside class="face face4"></aside>
-                    <aside class="face face5"></aside>
-                    <aside class="face face6"></aside>
+            <div className="space3D">
+                <div className="cube3D">
+                    <div className="base"></div>
+                    <aside className="face face1"></aside>
+                    <aside className="face face2"></aside>
+                    <aside className="face face3"></aside>
+                    <aside className="face face4"></aside>
+                    <aside className="face face5"></aside>
+                    <aside className="face face6"></aside>
                 </div>
             </div>
         </div>

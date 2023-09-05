@@ -1,10 +1,6 @@
 import { materials } from "../data/materials"
 
-import { useContext } from "react"
-import { MaterialContext } from "../Contexts"
-
 export const Materias = ({setMaterial}) => {
-    const material = useContext(MaterialContext)
 
     const handleChange = (e) => {
         setMaterial(e.target.value)
