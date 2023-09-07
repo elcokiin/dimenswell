@@ -11,7 +11,7 @@ export const Cylinder = () => {
     return (
         <>
             <p className="text-lg font-bold">
-                L = {(width / 100).toFixed(5)} m
+                L = {(width / 100)} m
             </p>
             <div className="cylinder" style={{ width: `${(width * 5)}px`, background: gradient }}></div>
         </>

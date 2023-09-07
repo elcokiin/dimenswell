@@ -1,0 +1,91 @@
+/* take of: https://codepen.io/fadzrinmadu/pen/NWpvVGa */
+.range {
+    height: 90px;
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 0 65px 0 45px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sliderValue {
+    position: relative;
+    width: 100%;
+}
+
+.sliderValue span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    color: #fff;
+    font-weight: 500;
+    top: -40px;
+    left: -40px;
+    transform: translate(-50%);
+    line-height: 55px;
+    z-index: 2; 
+}
+
+.sliderValue span::after {
+    position: absolute;
+    content: "";
+    height: 50px;
+    width: 50px;
+    background: #f53333;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    z-index: -1; 
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+.field .value {
+    position: absolute;
+    font-size: 16px;
+    color: #f53333;
+    font-weight: 600;
+}
+
+.field .value.left {
+    left: -43px;
+}
+
+.field .value.right {
+    right: -43px;
+}
+
+.range input {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 3px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    z-index: 2222;
+}
+
+.range input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    background: #f53333;
+    border: 1px solid #f53333;
+    cursor: pointer;
+}
