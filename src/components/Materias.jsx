@@ -1,6 +1,6 @@
 import { materials } from "../data/materials"
 
-export const Materias = ({setMaterial, setWidth}) => {
+export const Materias = ({ setMaterial }) => {
 
     const handleChange = (e) => {
         setMaterial(e.target.value)

@@ -17,16 +17,21 @@ const R1 = () => {
     const [changeWidth, setChangeWidth] = useState(0);
     const [material, setMaterial] = useState("Acero")
     const [temperature, setTemperature] = useState(25)
+    const [initTemperature, setInitTemperature] = useState(0)
+    const [initWidth, setInitWidth] = useState(0)
 
     const handleLarge = (e) => {
+        setInitWidth(width)
         setWidth(e.target.value / 1)
     }
 
     const handleTemperature = (e) => {
+        setInitTemperature(temperature)
         const temperatureVariation = e.target.value - temperature
         const changeLength = obtainChangeLength(width, obtainMaterial(material).expansionCoefficient, temperatureVariation)
         const newWidth = width + changeLength
         setChangeWidth(changeLength)
+        setInitWidth(width)
         setWidth(newWidth)
         setTemperature(e.target.value / 1)
     }
@@ -50,9 +55,9 @@ const R1 = () => {
                                 <Materias setMaterial={setMaterial} setWidth={setWidth} />
                             </div>
                         </section>
-                        <aside className='flex flex-col items-center w-2/5 h-screen border-l-8'>
+                        <aside className='flex flex-col items-center w-2/5'>
                             <ZoomCylinderChange width={changeWidth}/>
-                            <TableVariations />
+                            <TableVariations finalTemperature={temperature} finalWidth={width} initTemperature={initTemperature} initWidth={initWidth}/>
                         </aside>
                     </main>
                 </TemperatureContext.Provider>
