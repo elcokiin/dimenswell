@@ -26,15 +26,22 @@ const R1 = () => {
     }
 
     const handleTemperature = (e) => {
+        setTemperature(e.target.value / 1)
+    }
+
+    const onMouseDownTemperature = () => {
         setInitTemperature(temperature)
-        const temperatureVariation = e.target.value - temperature
+    }
+
+    const onMouseUpTemperature = () => {
+        const temperatureVariation = temperature - initTemperature
         const changeLength = obtainChangeLength(width, obtainMaterial(material).expansionCoefficient, temperatureVariation)
         const newWidth = width + changeLength
         setChangeWidth(changeLength)
         setInitWidth(width)
         setWidth(newWidth)
-        setTemperature(e.target.value / 1)
     }
+
 
     return (
         <WidthContext.Provider value={width}>
@@ -49,7 +56,7 @@ const R1 = () => {
                             <Cylinder width={width}/>
                             <div className='w-full flex items-start m-8 justify-around'>
                                 <InputRange min="0" max="150" value={width} message="Longitud (cm)" handleChange={handleLarge} />
-                                <InputRange min="-100" max="1500" value={temperature} message="Temperatua (C°)" handleChange={handleTemperature} />
+                                <InputRange min="-100" max="1500" value={temperature} message="Temperatua (C°)" handleChange={handleTemperature} mouseDown={onMouseDownTemperature} mouseUp={onMouseUpTemperature} />
                             </div>
                             <div className='w-full flex justify-center'>
                                 <Materias setMaterial={setMaterial} setWidth={setWidth} />
