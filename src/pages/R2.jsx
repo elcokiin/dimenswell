@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { Header } from "../components/Header"
-import { inputs } from '../data/inputsR2'
+import { inputs } from '../data/inputs'
+import { Materias } from "../components/Materias";
 
 const R2 = () => {
     const [cal, setCal] = useState("");
+    const [material, setMaterial] = useState("Acero")
 
     const handleChange = (e) => {
         setCal(e.target.value);
@@ -23,6 +25,10 @@ const R2 = () => {
                                 Información
                             </button>
                         </div>
+                        <div className="w-full px-16 mt-12 mb-12">
+                            <Materias setMaterial={setMaterial} />
+                        </div>
+
                     </div>
                     <div className="mt-6 border-b-1 border-blueGray-300">
                         <div className="flex flex-wrap">
@@ -33,7 +39,7 @@ const R2 = () => {
                                     </label>
                                     <select name="cal" id="calc" onChange={handleChange} className="border-0 p-4 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                                         <option value="">¿Que quieres calcular?</option>
-                                        <option value="c">Coeficiente de expansión termica lineal</option>
+                                        {/* <option value="c">Coeficiente de expansión termica lineal</option> */}
                                         <option value="a1">Area inicial</option>
                                         <option value="a2">Area final</option>
                                         <option value="t1">Temperatura inicial</option>
