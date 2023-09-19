@@ -3,12 +3,52 @@ import { Header } from "../components/Header"
 import { inputs } from '../data/inputs'
 import { Materias } from "../components/Materias";
 
+import { S, sI, tI, tF, obtainMaterial } from '../utils/utils'
+
 const R2 = () => {
     const [cal, setCal] = useState("");
     const [material, setMaterial] = useState("Acero")
+    const [response, setResponse] = useState("");
+    const [cInputs, setcInputs] = useState({
+        a1: 1.5,
+        a2: 2,
+        t1: 25,
+        t2: 100
+    })
 
     const handleChange = (e) => {
+        setResponse("")
         setCal(e.target.value);
+    }
+
+    const inputHandleChange = (e) => {
+        setResponse("")
+        setcInputs({
+            ...cInputs,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleClick = () => {
+        const { a1, a2, t1, t2 } = cInputs
+        const cD = obtainMaterial(material).dilatationSuperficialCoefficient
+
+        switch (cal) {
+            case "a1":
+                setResponse(sI(a2, cD, t2 - t1))
+                break;
+            case "a2":
+                setResponse(S(a1, cD, t2 - t1))
+                break;
+            case "t1":
+                setResponse(tI(a2, a1, cD, t2))
+                break;
+            case "t2":
+                setResponse(tF(a2, a1, cD, t1))
+                break;
+            default:
+                break;
+        }
     }
 
     return <div>
@@ -19,14 +59,14 @@ const R2 = () => {
                     <div className="rounded-t bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
                             <h6 className="text-blueGray-700 text-xl font-bold">
-                                Calculadora térmico de expansión
+                                Calculadora térmica de expansión Superficial
                             </h6>
                             <button className="bg-red-500 text-white active:bg-red-600 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
                                 Información
                             </button>
                         </div>
                         <div className="w-full px-16 mt-12 mb-12">
-                            <Materias setMaterial={setMaterial} />
+                            <Materias setMaterial={setMaterial} m={material} />
                         </div>
 
                     </div>
@@ -38,7 +78,7 @@ const R2 = () => {
                                         Calcula
                                     </label>
                                     <select name="cal" id="calc" onChange={handleChange} className="border-0 p-4 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                                        <option value="">¿Que quieres calcular?</option>
+                                        <option value="">¿Qué quieres calcular?</option>
                                         {/* <option value="c">Coeficiente de expansión termica lineal</option> */}
                                         <option value="a1">Area inicial</option>
                                         <option value="a2">Area final</option>
@@ -64,7 +104,7 @@ const R2 = () => {
                                                         {content.subTitle}
                                                     </label>
                                                     {
-                                                        content.id === cal ? <span>resultado</span> : <input type="number" className={`w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150`} defaultValue={content.defaultValue} />
+                                                        content.id === cal ? <span className="mt-8 px-6 py-2 rounded-sm bg-green-500 font-semibold w-full">Resultado: {response}</span> : <input onChange={inputHandleChange} name={content.id} type="number" className={`w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150`} defaultValue={content.defaultValue} />
                                                     }
                                                 </div>
                                             </div>
@@ -76,7 +116,7 @@ const R2 = () => {
                     </div>
                     <footer className="relative pt-8 pb-6 mt-2 w-full flex items-center justify-center">
                         {/* button for calculate */}
-                        <button className="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
+                        <button className="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button" onClick={handleClick}>
                             Calcular
                         </button>
                     </footer>
@@ -86,4 +126,4 @@ const R2 = () => {
     </div>
 };
 
-export default R2;
+export default R2

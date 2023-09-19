@@ -1,6 +1,6 @@
 import { materials } from "../data/materials"
 
-export const Materias = ({ setMaterial }) => {
+export const Materias = ({ m, setMaterial }) => {
 
     const handleChange = (e) => {
         setMaterial(e.target.value)
@@ -14,7 +14,7 @@ export const Materias = ({ setMaterial }) => {
                     return (
                         // ratio buttons with the materils
                         <div key={material.id} className="flex flex-row items-center">
-                            <input type="radio" id={material.name} name="material" value={material.name} onChange={handleChange}/>
+                            <input type="radio" id={material.name} name="material" value={material.name} onChange={handleChange} checked={material.name === m}/>
                             <label htmlFor={material.name} className="text-sm font-medium pl-2">{material.name}</label>
                         </div>
                     )

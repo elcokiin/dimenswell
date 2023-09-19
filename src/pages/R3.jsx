@@ -34,14 +34,14 @@ const R3 = () => {
                     <div className="rounded-t bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
                             <h6 className="text-blueGray-700 text-xl font-bold">
-                                Calculadora térmico de expansión
+                                Calculadora térmico de expansión Volumetrica
                             </h6>
                             <button className="bg-red-500 text-white active:bg-red-600 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
                                 Información
                             </button>
                         </div>
                         <div className="w-full px-16 mt-12 mb-12">
-                            <Materias setMaterial={setMaterial} />
+                            <Materias setMaterial={setMaterial} m={material}/>
                         </div>
 
                     </div>

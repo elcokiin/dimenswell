@@ -21,7 +21,15 @@ const R1 = () => {
     const [initWidth, setInitWidth] = useState(0)
 
     const handleLarge = (e) => {
+        setWidth(e.target.value / 1)
+    }
+
+    const onMouseDownLarge = () => {
         setInitWidth(width)
+    }
+
+    const onMouseUpLarge = (e) => {
+        console.log(e.target.value)
         setWidth(e.target.value / 1)
     }
 
@@ -55,11 +63,11 @@ const R1 = () => {
                             </p>
                             <Cylinder width={width}/>
                             <div className='w-full flex items-start m-8 justify-around'>
-                                <InputRange min="0" max="150" value={width} message="Longitud (cm)" handleChange={handleLarge} />
+                                <InputRange min="0" max="150" value={width} message="Longitud (cm)" handleChange={handleLarge} mouseDown={onMouseDownLarge} mouseUp={onMouseUpLarge}/>
                                 <InputRange min="-100" max="1500" value={temperature} message="Temperatua (C°)" handleChange={handleTemperature} mouseDown={onMouseDownTemperature} mouseUp={onMouseUpTemperature} />
                             </div>
                             <div className='w-full flex justify-center'>
-                                <Materias setMaterial={setMaterial} setWidth={setWidth} />
+                                <Materias setMaterial={setMaterial} m={material} />
                             </div>
                         </section>
                         <aside className='flex flex-col items-center w-2/5'>

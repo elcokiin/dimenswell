@@ -10,11 +10,11 @@ export const TableVariations = ({ initTemperature, initWidth, finalTemperature, 
             <nav>
                 <ul className="grid grid-cols-2 gap-16 gap-x-16 p-8 font-semibold text-sm">
                     <li>Temperatura Inicial: {initTemperature} C°</li>
-                    <li>Longitud Inicial: {initWidth.toFixed(4)} m</li>
+                    <li>Longitud Inicial: {(initWidth/100).toFixed(4)} m</li>
                     <li>Temperatura Final: {finalTemperature} C°</li>
-                    <li>Longitud Final: {finalWidth.toFixed(4)} m</li>
+                    <li>Longitud Final: {(finalWidth/100).toFixed(4)} m</li>
                     <li>ΔT: {differenceTemperature ? differenceTemperature : 0}</li>
-                    <li>ΔL: {differenceWidth ? differenceWidth.toFixed(8) : 0} m</li>
+                    <li>ΔL: {differenceWidth ? (differenceWidth/100).toFixed(8) : 0} m</li>
                 </ul>
             </nav>
         </div>
