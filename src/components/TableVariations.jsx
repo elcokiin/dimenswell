@@ -14,7 +14,7 @@ export const TableVariations = ({ initTemperature, initWidth, finalTemperature, 
                     <li>Temperatura Final: {finalTemperature} C°</li>
                     <li>Longitud Final: {(finalWidth/100).toFixed(4)} m</li>
                     <li>ΔT: {differenceTemperature ? differenceTemperature : 0}</li>
-                    <li>ΔL: {differenceWidth ? (differenceWidth/100).toFixed(8) : 0} m</li>
+                    <li>ΔL: {differenceWidth ? (differenceWidth/100).toExponential(4) : 0} m</li>
                 </ul>
             </nav>
         </div>
