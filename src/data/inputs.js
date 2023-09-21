@@ -29,16 +29,6 @@ export const inputs = [
             }
         ]
     },
-    // {
-    //     title: "COEFICIENTE DE EXPANSIÓN TERMICA",
-    //     content: [
-    //         {
-    //             id: "c",
-    //             subTitle: "",
-    //             defaultValue: "0.343212",
-    //         }
-    //     ]
-    // }
 ]
 
 export const inputsR3 = [

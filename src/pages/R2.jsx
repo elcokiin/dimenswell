@@ -5,6 +5,7 @@ import { Materias } from "../components/Materias";
 import { Form } from "../components/Form";
 
 import { S, sI, tI, tF, obtainMaterial } from '../utils/utils'
+import { Link } from "react-router-dom";
 
 const R2 = () => {
     const [cal, setCal] = useState("");
@@ -62,9 +63,9 @@ const R2 = () => {
                             <h6 className="text-blueGray-700 text-xl font-bold">
                                 Calculadora térmica de expansión Superficial
                             </h6>
-                            <button className="bg-red-500 text-white active:bg-red-600 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
+                            <Link to="/#et-superficial" className="bg-red-500 text-white active:bg-red-600 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
                                 Información
-                            </button>
+                            </Link>
                         </div>
                         <div className="w-full px-16 mt-12 mb-12">
                             <Materias setMaterial={setMaterial} m={material} />

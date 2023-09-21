@@ -12,13 +12,13 @@ export const Header = () => {
             <div className="mr-12">
                 <ul className="flex w-44 justify-between">
                     <li>
-                        <Link to="/r1" className='p-2 bg-white rounded-md hover:font-semibold'>R1</Link>
+                        <Link to="/r1" className='p-2 bg-white rounded-md hover:bg-gray-300 transition-all duration-200'>R1</Link>
                     </li>
                     <li>
-                        <Link to="/r2" className='p-2 bg-white rounded-md hover:font-semibold'>R2</Link>
+                        <Link to="/r2" className='p-2 bg-white rounded-md hover:bg-gray-300 transition-all duration-200'>R2</Link>
                     </li>
                     <li>
-                        <Link to="/r3" className='p-2 bg-white rounded-md hover:font-semibold'>R3</Link>
+                        <Link to="/r3" className='p-2 bg-white rounded-md hover:bg-gray-300 transition-all duration-200'>R3</Link>
                     </li>
                 </ul>
             </div>
