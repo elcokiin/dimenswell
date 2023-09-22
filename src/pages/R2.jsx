@@ -35,7 +35,7 @@ const R2 = () => {
 
     const handleClick = () => {
         const { a1, a2, t1, t2 } = cInputs
-        const cD = obtainMaterial(material).expansionCoefficient
+        const cD = 2*obtainMaterial(material).expansionCoefficient
 
         switch (cal) {
             case "a1":
