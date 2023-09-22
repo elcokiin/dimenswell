@@ -1,5 +1,10 @@
+import { Equation } from "./Equation"
+import { scientificNotation } from '../utils/utils'
 
 export const Form = ({ inputs, handleChange, handleClick, response, cal }) => {
+
+    response = (response / 1).toExponential(2)
+
     return (
         <form>
             {inputs.map((input, i) => {
@@ -15,7 +20,8 @@ export const Form = ({ inputs, handleChange, handleClick, response, cal }) => {
                                         {content.subTitle}
                                     </label>
                                     {
-                                        content.id === cal ? <span className="mt-8 px-6 py-2 rounded-sm bg-green-500 font-semibold w-full">Resultado: {(response / 1).toExponential(2)}</span> : <input onChange={handleChange} name={content.id} type="number" className={`w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150`} defaultValue={content.defaultValue} />
+                                        content.id === cal ? <span className="px-6 py-2 rounded-md bg-green-500 font-semibold w-full inline-block">Resultado: <Equation equationText={scientificNotation(response, "")}/></span>
+                                        : <input onChange={handleChange} name={content.id} type="number" className={`w-full border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150`} defaultValue={content.defaultValue} />
                                     }
                                 </div>
                             </div>

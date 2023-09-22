@@ -25,9 +25,9 @@ export const Information = ({ title, info, equations, figures, id }) => {
                     <div className="">
                         {figures.map((e) => (
                             <div key={e.id} className="flex flex-col items-center justify-around flex-wrap">
-                                <figures className="rounded-md">
+                                <figure className="rounded-md">
                                     <img src={image} alt={e.description} className="cover" />
-                                </figures>
+                                </figure>
                                 <div className="text-center pt-2">
                                     <span className="text-xs font-bold italic">Figura: {e.id}: </span>
                                     <span className="text-xs font-sans italic text-center leading-none">{e.description}</span>

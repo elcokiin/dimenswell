@@ -4,7 +4,7 @@ export const Equation = ({equationText}) => {
     const equation = `$$${equationText}$$`
 
     return (
-        <div>
+        <div className="inline">
             <Latex>
                 {equation}
             </Latex>

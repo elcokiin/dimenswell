@@ -35,20 +35,43 @@ export const tF = (S, sI, cD, tI) => {
     return (S - sI) / (sI * cD * tI)
 }
 
+// equations for volum
+// V, vI: area final and initial respectively
+// cDV: coefficient of dilation
+// cTV: change in temperature
+// tIV: initial temperature
+// tFV: final temperature
 
-// export const getExpantionCoefficient = ( f, i, tf, ti ) => {
-//     const n = f-i;
-//     const d = i*(tf - ti)
+export const V = (vI, cDV, cTV) => {
+    return vI * (1 + cDV * cTV)
+}
 
-//     return (n/d)
-// }
+export const vI = (V, cDV, cTV) => {
+    return V / (1 + cDV * cTV)
+}
 
-// // init value
-// export const iFun = ( c, f, tf, ti ) => {
-//     return f/(c*(tf-ti) + 1)
-// }
+export const cDV = (V, vI, cTV) => {
+    return (V / vI - 1) / cTV
+}
 
-// // final value
-// export const fFun = ( c, i, tf, ti) => {
-//     return c*i*(tf - ti)
-// }
+export const tIV = (V, vI, cDV, tFV) => {
+    return (V - vI) / (vI * cDV * tFV)
+}
+
+export const tFV = (V, vI, cDV, tIV) => {
+    return (V - vI) / (vI * cDV * tIV)
+}
+
+// method scientific notation for latex format, with units and accept negative numbers
+export const scientificNotation = (number, unit) => {
+    const numberString = number.toString();
+    const numberArray = numberString.split('e');
+    const numberScientific = numberArray[0];
+    const numberExponent = numberArray[1];
+    console.log(numberExponent)
+    if (numberExponent && numberExponent !== "+0" && numberExponent !== "-0") {
+        return `${numberScientific} \\times 10^{${numberExponent}} ${unit}`;
+    } else {
+        return `${numberScientific} ${unit}`;
+    }
+}

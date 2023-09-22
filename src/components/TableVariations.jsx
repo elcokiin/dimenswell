@@ -1,5 +1,13 @@
+import { Equation } from "./Equation"
+import { scientificNotation } from '../utils/utils'
 
 export const TableVariations = ({ initTemperature, initWidth, finalTemperature, finalWidth }) => {
+
+    // return difference Length
+    const differenceLengthLatex = () => {
+        console.log(differenceWidth/100)
+        return "\\Delta L = " + scientificNotation((differenceWidth/100).toExponential(2), " m")
+    }
 
     const differenceTemperature = finalTemperature - initTemperature
     const differenceWidth = finalWidth - initWidth
@@ -14,7 +22,7 @@ export const TableVariations = ({ initTemperature, initWidth, finalTemperature, 
                     <li>Temperatura Final: {finalTemperature} C°</li>
                     <li>Longitud Final: {(finalWidth/100).toFixed(4)} m</li>
                     <li>ΔT: {differenceTemperature ? differenceTemperature : 0}</li>
-                    <li>ΔL: {differenceWidth ? (differenceWidth/100).toExponential(4) : 0} m</li>
+                    <li>{differenceWidth ? (<Equation equationText={differenceLengthLatex()}/>) : 0}</li>
                 </ul>
             </nav>
         </div>

@@ -4,13 +4,15 @@ import { inputsR3 } from '../data/inputs'
 import { Materias } from "../components/Materias";
 import { Form } from "../components/Form";
 
-import { S, sI, tI, tF, obtainMaterial } from '../utils/utils'
+import { Link } from "react-router-dom"
+
+import { obtainMaterial, V, tFV, tIV, vI } from '../utils/utils'
 import '../styles/r3.css'
 
 const R3 = () => {
     const [cal, setCal] = useState("");
     const [material, setMaterial] = useState("Acero")
-    const [response, setResponse] = useState("");
+    const [response, setResponse] = useState("")
     const [cInputs, setcInputs] = useState({
         v1: 1.5,
         v2: 2,
@@ -36,17 +38,17 @@ const R3 = () => {
         const cD = obtainMaterial(material).dilatationSuperficialCoefficient
 
         switch (cal) {
-            case "a1":
-                setResponse(sI(v2, cD, t2 - t1))
+            case "v1":
+                setResponse(vI(v2, cD, t2 - t1))
                 break;
-            case "a2":
-                setResponse(S(v1, cD, t2 - t1))
+            case "v2":
+                setResponse(V(v1, cD, t2 - t1))
                 break;
             case "t1":
-                setResponse(tI(v2, v1, cD, t2))
+                setResponse(tIV(v2, v1, cD, t2))
                 break;
             case "t2":
-                setResponse(tF(v2, v1, cD, t1))
+                setResponse(tFV(v2, v1, cD, t1))
                 break;
             default:
                 break;
@@ -56,19 +58,6 @@ const R3 = () => {
     return <div>
         <Header />
         <section className=" py-1 bg-blueGray-50">
-            <div>
-                <div className="space3D">
-                    <div className="cube3D">
-                        <div className="base"></div>
-                        <aside className="face face1"></aside>
-                        <aside className="face face2"></aside>
-                        <aside className="face face3"></aside>
-                        <aside className="face face4"></aside>
-                        <aside className="face face5"></aside>
-                        <aside className="face face6"></aside>
-                    </div>
-                </div>
-            </div>
             <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
                     <div className="rounded-t bg-white mb-0 px-6 py-6">
@@ -76,14 +65,26 @@ const R3 = () => {
                             <h6 className="text-blueGray-700 text-xl font-bold">
                                 Calculadora térmico de expansión Volumetrica
                             </h6>
-                            <button className="bg-red-500 text-white active:bg-red-600 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
+                            <Link to="/" className="bg-red-500 text-white active:bg-red-600 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
                                 Información
-                            </button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="space3D">
+                            <div className="cube3D">
+                                <div className="base"></div>
+                                <aside className="face face1"></aside>
+                                <aside className="face face2"></aside>
+                                <aside className="face face3"></aside>
+                                <aside className="face face4"></aside>
+                                <aside className="face face5"></aside>
+                                <aside className="face face6"></aside>
+                            </div>
                         </div>
                         <div className="w-full px-16 mt-12 mb-12">
                             <Materias setMaterial={setMaterial} m={material}/>
                         </div>
-
                     </div>
                     <div className="mt-6 border-b-1 border-blueGray-300">
                         <div className="flex flex-wrap">
@@ -105,7 +106,7 @@ const R3 = () => {
                         </div>
                     </div>
                     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                        <Form cal={cal} inputs={inputsR3} handleChange={inputHandleChange} handleClick={handleClick} response={response}/>
+                        <Form cal={cal} inputs={inputsR3} handleChange={inputHandleChange} handleClick={handleClick} response={response} />
                     </div>
                 </div>
             </div>
