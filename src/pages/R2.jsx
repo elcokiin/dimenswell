@@ -35,6 +35,11 @@ const R2 = () => {
 
     const handleClick = () => {
         const { a1, a2, t1, t2 } = cInputs
+
+        if(a1<=0 || a2 <=0) {
+            alert("Las áreas deben ser mayores a 0")
+            return
+        }
         const cD = 2*obtainMaterial(material).expansionCoefficient
 
         switch (cal) {

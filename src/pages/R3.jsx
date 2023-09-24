@@ -35,7 +35,12 @@ const R3 = () => {
 
     const handleClick = () => {
         const { v1, v2, t1, t2 } = cInputs
-        const cD = obtainMaterial(material).dilatationSuperficialCoefficient
+        const cD = obtainMaterial(material).dilatationVolumetricCoefficient
+
+        if(v1<=0 || v2 <=0) {
+            alert("Los volúmenes deben ser mayores a 0")
+            return
+        }
 
         switch (cal) {
             case "v1":
