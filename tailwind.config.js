@@ -5,9 +5,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'circle': "url('./assets/circle.png')"
-      }
     },
   },
   plugins: [],

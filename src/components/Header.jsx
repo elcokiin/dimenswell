@@ -6,11 +6,11 @@ export const Header = () => {
             <div className="ml-8">
                 <Link to="/" className='block text-center'>
                     <h1 className='text-xl font-extrabold text-white'>DimenSwell</h1>
-                    <span className='text-sm font-light text-gray-200'>Explora la expansión térmica de los sólidos.</span>
+                    <span className='text-sm font-light text-gray-200 hidden sm:block'>Explora la expansión térmica de los sólidos.</span>
                 </Link>
             </div>
-            <div className="mr-12">
-                <ul className="flex w-44 justify-between">
+            <div className="m-4 sm:mr-12">
+                <ul className="flex w-32 sm:w-44 justify-between">
                     <li>
                         <Link to="/r1" className='p-2 bg-white rounded-md hover:bg-gray-300 transition-all duration-200'>R1</Link>
                     </li>

@@ -56,24 +56,30 @@ const R1 = () => {
             <MaterialContext.Provider value={material}>
                 <TemperatureContext.Provider value={temperature}>
                     <Header />
-                    <main className='pt-8 flex overflow-hidden'>
-                        <section className='flex flex-col items-start w-3/5 ml-8 h-full'>
-                            <p className="text-lg font-bold">
-                                L = {(width / 100).toFixed(2)} m
-                            </p>
-                            <Cylinder width={width}/>
-                            <div className='w-full flex items-start m-8 justify-around'>
-                                <InputRange min="0" max="150" value={width} message="Longitud (cm)" handleChange={handleLarge} mouseDown={onMouseDownLarge} mouseUp={onMouseUpLarge}/>
-                                <InputRange min="-100" max="1500" value={temperature} message="Temperatua (C°)" handleChange={handleTemperature} mouseDown={onMouseDownTemperature} mouseUp={onMouseUpTemperature} />
+                    <main className='pt-8 flex overflow-x-hidden'>
+                        <section className='flex flex-col items-start w-full mx-2 sm:ml-8 h-full'>
+                            <div>
+                                <p className="text-lg font-bold">
+                                    L = {(width / 100).toFixed(2)} m
+                                </p>
+                                <Cylinder width={width} />
                             </div>
-                            <div className='w-full flex justify-center'>
+                            <div className='w-full flex justify-center my-4 items-center'>
+                                <div className='w-full sm:w-4/5 flex flex-wrap sm:py-2 sm:px-4 sm:rounded-md sm:bg-gray-50 sm:shadow-lg'>
+                                    <div className='w-full flex m-8 justify-around items-center md:w-1/2 flex-col'>
+                                        <InputRange min="0" max="150" value={width} message="Longitud (cm)" handleChange={handleLarge} mouseDown={onMouseDownLarge} mouseUp={onMouseUpLarge} />
+                                        <InputRange min="-100" max="1500" value={temperature} message="Temperatua (C°)" handleChange={handleTemperature} mouseDown={onMouseDownTemperature} mouseUp={onMouseUpTemperature} />
+                                    </div>
+                                    <div className='flex justify-center w-full h-auto sm:w-1/2 md:w-80 -mx-2'>
+                                        <ZoomCylinderChange width={changeWidth} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='w-full flex justify-around flex-wrap items-center'>
                                 <Materias setMaterial={setMaterial} m={material} />
+                                <TableVariations finalTemperature={temperature} finalWidth={width} initTemperature={initTemperature} initWidth={initWidth} />
                             </div>
                         </section>
-                        <aside className='flex flex-col items-center w-2/5'>
-                            <ZoomCylinderChange width={changeWidth}/>
-                            <TableVariations finalTemperature={temperature} finalWidth={width} initTemperature={initTemperature} initWidth={initWidth}/>
-                        </aside>
                     </main>
                 </TemperatureContext.Provider>
             </MaterialContext.Provider>

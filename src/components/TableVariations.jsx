@@ -5,7 +5,6 @@ export const TableVariations = ({ initTemperature, initWidth, finalTemperature, 
 
     // return difference Length
     const differenceLengthLatex = () => {
-        console.log(differenceWidth/100)
         return "\\Delta L = " + scientificNotation((differenceWidth/100).toExponential(2), " m")
     }
 
@@ -13,10 +12,10 @@ export const TableVariations = ({ initTemperature, initWidth, finalTemperature, 
     const differenceWidth = finalWidth - initWidth
 
     return (
-        <div className="flex flex-col items-center mt-12 border-4 border-red-500 w-full mr-8">
+        <div className="flex flex-col items-center border-4 border-red-500 w-auto mt-4 md:mt-0">
             <header className="w-full text-xl font-extrabold bg-red-500 text-white text-center">Tabla de Valores</header>
             <nav>
-                <ul className="grid grid-cols-2 gap-16 gap-x-16 p-8 font-semibold text-sm">
+                <ul className="grid grid-cols-2 gap-8 sm:gap-16 p-8 font-semibold text-sm">
                     <li>Temperatura Inicial: {initTemperature} C°</li>
                     <li>Longitud Inicial: {(initWidth/100).toFixed(4)} m</li>
                     <li>Temperatura Final: {finalTemperature} C°</li>

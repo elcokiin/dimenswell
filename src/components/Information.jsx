@@ -4,7 +4,7 @@ import image from '../assets/et.png'
 
 export const Information = ({ title, info, equations, figures, id }) => {
     return (
-        <section className='pt-4 px-12 font-serif' id={id}>
+        <section className='pt-4 px-4 sm:px-12 font-serif' id={id}>
             <h1 className='font-extrabold text-lg font-sans'>{title}</h1>
             <div className='mt-2'>
                 <p className='text-normal leading-relaxed'>
@@ -13,7 +13,7 @@ export const Information = ({ title, info, equations, figures, id }) => {
                 <div className="w-full flex items-center justify-center py-4">
                     <div className="flex items-center justify-around flex-wrap">
                         {equations.map((e) => (
-                            <div key={e.id} className="w-1/2 flex flex-col flex-wrap items-center justify-center py-4 px-8 rounded-md bg-gray-100 shadow-md">
+                            <div key={e.id} className="sm:w-1/2 flex flex-col flex-wrap items-center justify-center py-4 px-8 rounded-md bg-gray-100 shadow-md">
                                 <Equation equationText={e.equationText} />
                                 <div className="text-center pt-2">
                                     <span className="text-xs font-bold italic">Ecuación: {e.id}: </span>

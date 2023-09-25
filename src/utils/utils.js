@@ -68,7 +68,6 @@ export const scientificNotation = (number, unit) => {
     const numberArray = numberString.split('e');
     const numberScientific = numberArray[0];
     const numberExponent = numberArray[1];
-    console.log(numberExponent)
     if (numberExponent && numberExponent !== "+0" && numberExponent !== "-0") {
         return `${numberScientific} \\times 10^{${numberExponent}} ${unit}`;
     } else {

@@ -10,7 +10,7 @@ export const ZoomCylinderChange = ({ width }) => {
 
     return (
 
-        <div className={`w-full h-1/2 bg-circle bg-no-repeat bg-contain bg-center flex flex-col items-center justify-center`}>
+        <div className={`w-4/5 h-auto md:w-60 md:h-60 border border-black rounded-full flex flex-col items-center justify-center py-8`}>
             <Cylinder width={(20 + width * 20) < 0 ? 0 : 20 + width * 20} />
             <span className="text-xs font-semibold pt-2">
                 <Equation equationText={differenceLengthLatex(width)} />
